@@ -1,0 +1,408 @@
+/* ===================================================================
+   VLADLENA — CV SITE
+   Font: Impact everywhere, per brief.
+=================================================================== */
+
+:root{
+  --orange:#EA4816;
+  --black:#111111;
+  --gray:#8a8a8a;
+  --gray-light:#bdbdbd;
+  --border:#cfcfcf;
+  --max-w: 1600px;
+  --side-pad: 48px;
+  --rail-w: 64px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Bold', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#ffffff;
+  color:var(--black);
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Bold', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+p, li, div, span, a, button, h1,h2,h3{
+  font-family: inherit;
+  font-weight: normal;
+}
+
+ul{ list-style:none; margin:0; padding:0; }
+a{ text-decoration:none; color:inherit; }
+button{ background:none; border:none; cursor:pointer; color:inherit; }
+
+img{ max-width:100%; display:block; }
+
+/* ---------------- Section frame + numbering rail ---------------- */
+
+.sec{
+  display:flex;
+  width:100%;
+  max-width:var(--max-w);
+  margin:0 auto;
+  border-bottom:1px solid var(--border);
+  align-items:stretch;
+}
+
+.sec-rail{
+  flex:0 0 var(--rail-w);
+  position:relative;
+  padding:28px 0 28px 20px;
+}
+
+.sec-num{
+  display:block;
+  font-size:15px;
+  letter-spacing:0.5px;
+  color:var(--black);
+}
+
+.sec-rail::after{
+  content:"";
+  position:absolute;
+  top:56px;
+  bottom:0;
+  left:20px;
+  width:1px;
+  background:var(--border);
+}
+
+.sec-body{
+  flex:1 1 auto;
+  padding:28px var(--side-pad) 40px 24px;
+  min-width:0;
+}
+
+.sec-title{
+  font-size:26px;
+  letter-spacing:0.5px;
+  margin:0 0 24px 0;
+  text-transform:uppercase;
+}
+
+/* ---------------- SECTION 01 — HERO ---------------- */
+
+.hero{
+  display:grid;
+  grid-template-columns: 1.15fr auto 1fr;
+  column-gap:48px;
+  row-gap:18px;
+  grid-template-areas:
+    "name name toggle"
+    "headline photo about"
+    "sub photo about"
+    "contact . skills";
+  align-items:start;
+}
+
+.hero-name span{
+  font-size:22px;
+  letter-spacing:1px;
+}
+
+.hero-toggle{
+  justify-self:end;
+  align-self:start;
+  font-size:22px;
+  letter-spacing:1px;
+}
+
+.lang-btn{
+  font-family:inherit;
+  font-size:22px;
+  letter-spacing:1px;
+  color:var(--gray);
+  padding:0;
+}
+.lang-btn.active{ color:var(--orange); }
+.hero-toggle .slash{ color:var(--orange); padding:0 2px; }
+
+.hero-headline{
+  font-size:56px;
+  line-height:1.05;
+  margin:6px 0 0 0;
+  text-transform:uppercase;
+  max-width:520px;
+}
+
+.hero-sub{
+  font-size:20px;
+  line-height:1.5;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+
+.hero-photo{
+  width:220px;
+  align-self:start;
+}
+.hero-photo img{
+  width:100%;
+  height:auto;
+  filter:grayscale(100%);
+}
+
+.hero-about h2{
+  font-size:20px;
+  text-transform:uppercase;
+  margin:0 0 12px 0;
+}
+.hero-about p{
+  font-size:16px;
+  line-height:1.5;
+  margin:0 0 18px 0;
+  max-width:560px;
+}
+
+.bullet-list li{
+  font-size:15px;
+  line-height:1.9;
+  color:var(--gray);
+  position:relative;
+  padding-left:14px;
+}
+.bullet-list li::before{
+  content:"•";
+  position:absolute;
+  left:0;
+  color:var(--gray);
+}
+
+.hero-contact{
+  font-size:17px;
+  color:var(--orange);
+  line-height:1.7;
+}
+
+.hero-skills{
+  font-size:17px;
+  color:var(--orange);
+  line-height:1.7;
+  text-align:right;
+}
+
+/* ---------------- SECTION 02 — LINKS ---------------- */
+
+.links-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.link-box{
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:16px;
+  transition:border-color .15s ease;
+}
+.link-box:hover{ border-color:var(--black); }
+.link-box .arrow{ color:var(--orange); font-size:18px; margin-left:12px; }
+
+/* ---------------- SECTION 03 / 05 — CARD ROWS ---------------- */
+
+.card-row{
+  display:grid;
+  gap:20px;
+}
+.card-row-4{ grid-template-columns:repeat(4,1fr); }
+.card-row-3{ grid-template-columns:repeat(3,1fr); }
+
+.exp-card, .edu-card{
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:18px;
+}
+
+.exp-date, .edu-date{
+  color:var(--orange);
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.exp-card h3, .edu-card h3{
+  font-size:19px;
+  margin:0 0 6px 0;
+  text-transform:none;
+}
+
+.exp-role, .edu-role{
+  color:var(--gray);
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.exp-card .bullet-list{ margin-bottom:14px; }
+.exp-card .bullet-list.small li{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--black);
+}
+.exp-card .bullet-list.small li::before{ color:var(--black); }
+
+.exp-duration{
+  color:var(--gray);
+  font-size:13px;
+}
+
+/* ---------------- SECTION 04 — PROJECTS ---------------- */
+
+.project-card{
+  border:1px solid var(--border);
+  border-radius:6px;
+  overflow:hidden;
+  padding:0;
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+}
+.project-card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+}
+.project-info{
+  padding:16px 18px 20px;
+}
+.project-info h3{
+  font-size:19px;
+  margin:0 0 8px 0;
+}
+.project-sub{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--gray);
+  font-size:14px;
+}
+.project-sub .arrow{ color:var(--orange); font-size:16px; }
+
+/* ---------------- FOOTER ---------------- */
+.site-footer{
+  text-align:center;
+  padding:24px;
+  color:var(--gray-light);
+  font-size:13px;
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,15,15,0.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:20px;
+}
+.modal-overlay.open{ display:flex; }
+
+.modal-box{
+  position:relative;
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  max-width:90vw;
+  max-height:90vh;
+  line-height:0;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+.modal-box.scrollable{
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.modal-box img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+}
+
+.modal-box:not(.scrollable) img{
+  max-height:90vh;
+}
+
+.modal-box.scrollable img{
+  width:100%;
+  max-height:none;
+}
+
+.modal-close{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:28px;
+  color:#fff;
+  background:rgba(0,0,0,0.45);
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  line-height:1;
+  z-index:2;
+}
+
+/* ===================================================================
+   MOBILE
+=================================================================== */
+
+@media (max-width: 900px){
+
+  :root{
+    --side-pad: 20px;
+    --rail-w: 44px;
+  }
+
+  .sec-rail{ padding:20px 0 20px 14px; }
+  .sec-rail::after{ left:14px; top:40px; }
+  .sec-body{ padding:20px 20px 32px 14px; }
+
+  .sec-title{ font-size:20px; margin-bottom:16px; }
+
+  /* Hero reflow: name/toggle row, headline, sub, about(+bullets), contact, skills.
+     Photo is removed from mobile layout entirely. */
+  .hero{
+    grid-template-columns: 1fr;
+    row-gap:16px;
+    grid-template-areas:
+      "name"
+      "toggle"
+      "headline"
+      "sub"
+      "about"
+      "contact"
+      "skills";
+  }
+  .hero-toggle{ justify-self:start; }
+  .hero-photo{ display:none; }
+
+  .hero-headline{ font-size:34px; max-width:none; }
+  .hero-sub{ font-size:15px; }
+  .hero-about p{ max-width:none; }
+
+  .hero-contact{ text-align:left; }
+  .hero-skills{ text-align:right; }
+
+  .links-row{
+    grid-template-columns:1fr;
+  }
+
+  .card-row-4, .card-row-3{
+    grid-template-columns:1fr;
+  }
+
+  .project-card img{ height:auto; aspect-ratio:16/9; }
+
+  .modal-box{ max-width:94vw; max-height:88vh; }
+  .modal-box.scrollable{ width:90vw !important; max-height:80vh; }
+}
