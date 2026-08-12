@@ -56,11 +56,13 @@ img{ max-width:100%; display:block; }
 .sec-rail{
   flex:0 0 var(--rail-w);
   position:relative;
-  padding:32px 0 32px 22px;
+  padding:32px 0 32px 0;
 }
 
 .sec-num{
   display:block;
+  width:48px;
+  text-align:center;
   font-size:14px;
   font-weight:500;
   letter-spacing:0.5px;
@@ -70,9 +72,9 @@ img{ max-width:100%; display:block; }
 .sec-rail::after{
   content:"";
   position:absolute;
-  top:46px;
+  top:34px;
   bottom:0;
-  left:22px;
+  left:48px;
   width:1px;
   background:var(--border);
 }
@@ -193,7 +195,7 @@ img{ max-width:100%; display:block; }
   color:var(--gray);
 }
 .hero-about .bullet-list li{
-  line-height: 1.85;
+  line-height: 1.28;
 }
 
 .hero-contact{
@@ -407,8 +409,9 @@ img{ max-width:100%; display:block; }
     --rail-w: 40px;
   }
 
-  .sec-rail{ padding:20px 0 20px 14px; }
-  .sec-rail::after{ left:14px; top:40px; }
+  .sec-rail{ padding:20px 0 20px 0; }
+  .sec-num{ width:30px; }
+  .sec-rail::after{ left:30px; top:28px; }
   .sec-body{ padding:20px 20px 32px 14px; }
 
   .sec-title{ font-size:20px; margin-bottom:16px; }
@@ -416,19 +419,19 @@ img{ max-width:100%; display:block; }
   /* Mobile order: name+toggle row -> headline -> photo -> subheading
      -> about(+bullets) -> contact -> skills. */
   .hero{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
+    column-gap:16px;
     row-gap:16px;
     grid-template-areas:
-      "name"
-      "toggle"
-      "headline"
-      "photo"
-      "sub"
-      "about"
-      "contact"
-      "skills";
+      "name toggle"
+      "headline headline"
+      "photo photo"
+      "sub sub"
+      "about about"
+      "contact contact"
+      "skills skills";
   }
-  .hero-toggle{ justify-self:start; }
+  .hero-toggle{ justify-self:end; align-self:center; }
 
   .hero-photo-desktop{ display:none; }
   .hero-photo-mobile{
