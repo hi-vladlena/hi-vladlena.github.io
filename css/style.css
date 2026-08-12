@@ -1,6 +1,8 @@
 /* ===================================================================
    VLADLENA — CV SITE
-   Font: Impact everywhere, per brief.
+   Font: Inter everywhere.
+   Desktop container is proportioned like an A4 sheet (narrower,
+   taller rhythm) rather than a wide flat dashboard.
 =================================================================== */
 
 :root{
@@ -9,10 +11,10 @@
   --gray:#8a8a8a;
   --gray-light:#bdbdbd;
   --border:#cfcfcf;
-  --max-w: 1600px;
-  --side-pad: 48px;
-  --rail-w: 64px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Bold', sans-serif;
+  --max-w: 1040px;      /* narrower column => taller, A4-like proportions */
+  --side-pad: 44px;
+  --rail-w: 56px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 *{ box-sizing: border-box; }
@@ -22,13 +24,14 @@ html,body{
   padding:0;
   background:#ffffff;
   color:var(--black);
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Bold', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 p, li, div, span, a, button, h1,h2,h3{
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 ul{ list-style:none; margin:0; padding:0; }
@@ -51,12 +54,13 @@ img{ max-width:100%; display:block; }
 .sec-rail{
   flex:0 0 var(--rail-w);
   position:relative;
-  padding:28px 0 28px 20px;
+  padding:36px 0 36px 20px;
 }
 
 .sec-num{
   display:block;
-  font-size:15px;
+  font-size:14px;
+  font-weight:500;
   letter-spacing:0.5px;
   color:var(--black);
 }
@@ -64,7 +68,7 @@ img{ max-width:100%; display:block; }
 .sec-rail::after{
   content:"";
   position:absolute;
-  top:56px;
+  top:58px;
   bottom:0;
   left:20px;
   width:1px;
@@ -73,14 +77,15 @@ img{ max-width:100%; display:block; }
 
 .sec-body{
   flex:1 1 auto;
-  padding:28px var(--side-pad) 40px 24px;
+  padding:36px var(--side-pad) 52px 22px;
   min-width:0;
 }
 
 .sec-title{
-  font-size:26px;
-  letter-spacing:0.5px;
-  margin:0 0 24px 0;
+  font-size:24px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  margin:0 0 26px 0;
   text-transform:uppercase;
 }
 
@@ -88,9 +93,9 @@ img{ max-width:100%; display:block; }
 
 .hero{
   display:grid;
-  grid-template-columns: 1.15fr auto 1fr;
-  column-gap:48px;
-  row-gap:18px;
+  grid-template-columns: 1.05fr auto 1fr;
+  column-gap:36px;
+  row-gap:22px;
   grid-template-areas:
     "name name toggle"
     "headline photo about"
@@ -100,21 +105,24 @@ img{ max-width:100%; display:block; }
 }
 
 .hero-name span{
-  font-size:22px;
-  letter-spacing:1px;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:0.5px;
 }
 
 .hero-toggle{
   justify-self:end;
   align-self:start;
-  font-size:22px;
-  letter-spacing:1px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.5px;
 }
 
 .lang-btn{
   font-family:inherit;
-  font-size:22px;
-  letter-spacing:1px;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.5px;
   color:var(--gray);
   padding:0;
 }
@@ -122,22 +130,26 @@ img{ max-width:100%; display:block; }
 .hero-toggle .slash{ color:var(--orange); padding:0 2px; }
 
 .hero-headline{
-  font-size:56px;
-  line-height:1.05;
-  margin:6px 0 0 0;
+  font-size:42px;
+  font-weight:800;
+  line-height:1.12;
+  letter-spacing:-0.5px;
+  margin:8px 0 0 0;
   text-transform:uppercase;
-  max-width:520px;
+  max-width:340px;
 }
 
 .hero-sub{
-  font-size:20px;
-  line-height:1.5;
+  font-size:15px;
+  font-weight:700;
+  line-height:1.65;
   text-transform:uppercase;
-  margin-top:4px;
+  letter-spacing:0.2px;
+  margin-top:6px;
 }
 
 .hero-photo{
-  width:220px;
+  width:170px;
   align-self:start;
 }
 .hero-photo img{
@@ -147,20 +159,24 @@ img{ max-width:100%; display:block; }
 }
 
 .hero-about h2{
-  font-size:20px;
+  font-size:16px;
+  font-weight:700;
   text-transform:uppercase;
+  letter-spacing:0.3px;
   margin:0 0 12px 0;
 }
 .hero-about p{
-  font-size:16px;
-  line-height:1.5;
+  font-size:14px;
+  font-weight:400;
+  line-height:1.6;
   margin:0 0 18px 0;
-  max-width:560px;
+  max-width:340px;
 }
 
 .bullet-list li{
-  font-size:15px;
-  line-height:1.9;
+  font-size:13px;
+  font-weight:400;
+  line-height:1.95;
   color:var(--gray);
   position:relative;
   padding-left:14px;
@@ -173,15 +189,17 @@ img{ max-width:100%; display:block; }
 }
 
 .hero-contact{
-  font-size:17px;
+  font-size:14px;
+  font-weight:500;
   color:var(--orange);
-  line-height:1.7;
+  line-height:1.8;
 }
 
 .hero-skills{
-  font-size:17px;
+  font-size:14px;
+  font-weight:500;
   color:var(--orange);
-  line-height:1.7;
+  line-height:1.8;
   text-align:right;
 }
 
@@ -190,27 +208,29 @@ img{ max-width:100%; display:block; }
 .links-row{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:16px;
 }
 
 .link-box{
   border:1px solid var(--border);
   border-radius:6px;
-  padding:16px 20px;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  font-size:16px;
+  font-size:14px;
+  font-weight:500;
   transition:border-color .15s ease;
 }
 .link-box:hover{ border-color:var(--black); }
-.link-box .arrow{ color:var(--orange); font-size:18px; margin-left:12px; }
+.link-box .arrow{ color:var(--orange); font-size:16px; margin-left:12px; }
 
 /* ---------------- SECTION 03 / 05 — CARD ROWS ---------------- */
 
 .card-row{
   display:grid;
-  gap:20px;
+  gap:16px;
+  align-items:stretch;
 }
 .card-row-4{ grid-template-columns:repeat(4,1fr); }
 .card-row-3{ grid-template-columns:repeat(3,1fr); }
@@ -218,38 +238,49 @@ img{ max-width:100%; display:block; }
 .exp-card, .edu-card{
   border:1px solid var(--border);
   border-radius:6px;
-  padding:18px;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
 }
 
 .exp-date, .edu-date{
   color:var(--orange);
-  font-size:14px;
+  font-size:12px;
+  font-weight:600;
   margin-bottom:10px;
 }
 
 .exp-card h3, .edu-card h3{
-  font-size:19px;
+  font-size:16px;
+  font-weight:700;
   margin:0 0 6px 0;
   text-transform:none;
 }
 
 .exp-role, .edu-role{
   color:var(--gray);
-  font-size:14px;
+  font-size:12px;
+  font-weight:500;
   margin-bottom:12px;
 }
 
 .exp-card .bullet-list{ margin-bottom:14px; }
 .exp-card .bullet-list.small li{
-  font-size:13px;
-  line-height:1.7;
+  font-size:12px;
+  line-height:1.75;
   color:var(--black);
 }
 .exp-card .bullet-list.small li::before{ color:var(--black); }
 
+/* Always sit at the same baseline across every card in the row,
+   regardless of how many bullet lines the card above it has. */
 .exp-duration{
   color:var(--gray);
-  font-size:13px;
+  font-size:12px;
+  font-weight:500;
+  margin-top:auto;
+  padding-top:10px;
 }
 
 /* ---------------- SECTION 04 — PROJECTS ---------------- */
@@ -265,14 +296,15 @@ img{ max-width:100%; display:block; }
 }
 .project-card img{
   width:100%;
-  height:190px;
+  aspect-ratio: 554 / 295;
   object-fit:cover;
 }
 .project-info{
-  padding:16px 18px 20px;
+  padding:14px 16px 18px;
 }
 .project-info h3{
-  font-size:19px;
+  font-size:16px;
+  font-weight:700;
   margin:0 0 8px 0;
 }
 .project-sub{
@@ -280,16 +312,18 @@ img{ max-width:100%; display:block; }
   align-items:center;
   justify-content:space-between;
   color:var(--gray);
-  font-size:14px;
+  font-size:12px;
+  font-weight:500;
 }
-.project-sub .arrow{ color:var(--orange); font-size:16px; }
+.project-sub .arrow{ color:var(--orange); font-size:15px; }
 
 /* ---------------- FOOTER ---------------- */
 .site-footer{
   text-align:center;
   padding:24px;
   color:var(--gray-light);
-  font-size:13px;
+  font-size:12px;
+  font-weight:500;
 }
 
 /* ---------------- MODAL ---------------- */
@@ -342,11 +376,12 @@ img{ max-width:100%; display:block; }
   position:absolute;
   top:10px;
   right:14px;
-  font-size:28px;
+  font-size:24px;
+  font-weight:400;
   color:#fff;
   background:rgba(0,0,0,0.45);
-  width:36px;
-  height:36px;
+  width:34px;
+  height:34px;
   border-radius:50%;
   line-height:1;
   z-index:2;
@@ -360,14 +395,14 @@ img{ max-width:100%; display:block; }
 
   :root{
     --side-pad: 20px;
-    --rail-w: 44px;
+    --rail-w: 40px;
   }
 
-  .sec-rail{ padding:20px 0 20px 14px; }
-  .sec-rail::after{ left:14px; top:40px; }
-  .sec-body{ padding:20px 20px 32px 14px; }
+  .sec-rail{ padding:22px 0 22px 14px; }
+  .sec-rail::after{ left:14px; top:42px; }
+  .sec-body{ padding:22px 20px 34px 14px; }
 
-  .sec-title{ font-size:20px; margin-bottom:16px; }
+  .sec-title{ font-size:19px; margin-bottom:16px; }
 
   /* Hero reflow: name/toggle row, headline, sub, about(+bullets), contact, skills.
      Photo is removed from mobile layout entirely. */
@@ -386,8 +421,8 @@ img{ max-width:100%; display:block; }
   .hero-toggle{ justify-self:start; }
   .hero-photo{ display:none; }
 
-  .hero-headline{ font-size:34px; max-width:none; }
-  .hero-sub{ font-size:15px; }
+  .hero-headline{ font-size:30px; max-width:none; }
+  .hero-sub{ font-size:13px; }
   .hero-about p{ max-width:none; }
 
   .hero-contact{ text-align:left; }
@@ -401,7 +436,7 @@ img{ max-width:100%; display:block; }
     grid-template-columns:1fr;
   }
 
-  .project-card img{ height:auto; aspect-ratio:16/9; }
+  .project-card img{ aspect-ratio:16/9; }
 
   .modal-box{ max-width:94vw; max-height:88vh; }
   .modal-box.scrollable{ width:90vw !important; max-height:80vh; }
