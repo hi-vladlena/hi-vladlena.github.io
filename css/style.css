@@ -73,7 +73,7 @@ img{ max-width:100%; display:block; }
   content:"";
   position:absolute;
   top:34px;
-  bottom:0;
+  bottom:34px;
   left:48px;
   width:1px;
   background:var(--border);
@@ -97,7 +97,7 @@ img{ max-width:100%; display:block; }
 
 .hero{
   display:grid;
-  grid-template-columns: 1fr 300px 1fr;
+  grid-template-columns: 0.85fr 300px 1fr;
   column-gap:40px;
   row-gap:18px;
   grid-template-areas:
@@ -150,6 +150,7 @@ img{ max-width:100%; display:block; }
   text-transform:uppercase;
   letter-spacing:0.1px;
   margin-top:8px;
+  align-self:end;
 }
 
 .hero-photo{
@@ -178,6 +179,13 @@ img{ max-width:100%; display:block; }
   line-height:1.3;
   margin:0 0 16px 0;
   max-width:600px;
+}
+
+/* Russian text is longer; narrow the column so wrapping matches the
+   Russian reference exactly (7-line paragraph, first bullet wraps). */
+html[lang="ru"] .hero-about p,
+html[lang="ru"] .hero-about .bullet-list{
+  max-width:415px;
 }
 
 .bullet-list li{
@@ -411,7 +419,7 @@ img{ max-width:100%; display:block; }
 
   .sec-rail{ padding:20px 0 20px 0; }
   .sec-num{ width:30px; }
-  .sec-rail::after{ left:30px; top:28px; }
+  .sec-rail::after{ left:30px; top:28px; bottom:28px; }
   .sec-body{ padding:20px 20px 32px 14px; }
 
   .sec-title{ font-size:20px; margin-bottom:16px; }
