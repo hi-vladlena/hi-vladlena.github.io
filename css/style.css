@@ -22,6 +22,34 @@
 
 *{ box-sizing: border-box; }
 
+/* ---------------------------------------------------------------
+   Responsive scale wrapper.
+   The whole desktop layout is authored at a fixed 1920px canvas
+   (matching the Figma reference 1:1) so every gap, font-size and
+   alignment relationship is exact. On viewports narrower than
+   1920px (basically every real screen) JS scales #scaleWrap down
+   as one rigid unit, so proportions and alignment never change —
+   only the overall size does. Below the 900px mobile breakpoint,
+   scaling is turned off and the dedicated stacked mobile layout
+   (see the media query at the bottom) takes over at 100% instead.
+------------------------------------------------------------------ */
+#scaleOuter{
+  width:100%;
+  overflow:hidden;
+}
+#scaleWrap{
+  width:1920px;
+  transform-origin: top left;
+  transform: scale(var(--page-scale, 1));
+}
+@media (max-width: 900px){
+  #scaleWrap{
+    width:100%;
+    transform:none !important;
+  }
+}
+
+
 html,body{
   margin:0;
   padding:0;
@@ -117,6 +145,10 @@ img{ max-width:100%; display:block; }
   display:flex;
   flex-direction:column;
   flex:0 0 auto;
+  width:500px;
+}
+html[lang="ru"] .hero-left{
+  width:650px;
 }
 
 .hero-name span{
@@ -149,10 +181,6 @@ img{ max-width:100%; display:block; }
   letter-spacing:-0.7px;
   margin:0;
   text-transform:uppercase;
-  max-width:500px;
-}
-html[lang="ru"] .hero-headline{
-  max-width:650px;
 }
 
 .hero-sub{
@@ -188,7 +216,7 @@ html[lang="ru"] .hero-photo-desktop{
 
 .hero-about{
   flex:0 0 auto;
-  max-width:680px;
+  width:680px;
 }
 .hero-about h2{
   font-size:30px;
