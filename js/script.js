@@ -13,15 +13,23 @@
      block so every gap/alignment relationship stays exactly as
      designed — only the overall size changes. #scaleOuter's height
      is kept in sync so the page never shows extra blank space or a
-     stray scrollbar from the transform. */
+     stray scrollbar from the transform.
+
+     The scale is the SMALLER of a width-based ratio and a
+     height-based ratio (measured against sections 1+2's own natural
+     height, not the whole page) so that opening the site always
+     shows sections 1+2 in full, regardless of the browser window's
+     aspect ratio or how much vertical space its own chrome eats. */
   var DESIGN_WIDTH = 1920;
   var MOBILE_BREAKPOINT = 900;
   var scaleOuter = document.getElementById("scaleOuter");
   var scaleWrap = document.getElementById("scaleWrap");
+  var sec02 = document.querySelector(".sec-02");
 
   function updateScale() {
     if (!scaleOuter || !scaleWrap) return;
     var vw = window.innerWidth;
+    var vh = window.innerHeight;
 
     if (vw < MOBILE_BREAKPOINT) {
       document.documentElement.style.setProperty("--page-scale", 1);
@@ -29,7 +37,15 @@
       return;
     }
 
-    var scale = Math.min(1, vw / DESIGN_WIDTH);
+    var widthScale = vw / DESIGN_WIDTH;
+    var heightScale = 1;
+    if (sec02) {
+      var sections12Height = sec02.offsetTop + sec02.offsetHeight; /* natural, unscaled */
+      if (sections12Height > 0) {
+        heightScale = vh / sections12Height;
+      }
+    }
+    var scale = Math.min(1, widthScale, heightScale);
     document.documentElement.style.setProperty("--page-scale", scale);
 
     var naturalHeight = scaleWrap.offsetHeight; /* offsetHeight ignores CSS transform */
