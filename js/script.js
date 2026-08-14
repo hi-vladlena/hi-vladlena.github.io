@@ -4,10 +4,8 @@
   var STORAGE_KEY = "vladlena-cv-lang";
   var langEnBtn = document.getElementById("langEn");
   var langRuBtn = document.getElementById("langRu");
-  var heroPhoto = document.getElementById("heroPhoto");
   var cvLink = document.getElementById("cvLink");
 
-  var photoSrc = { en: "images/Me-eng.webp", ru: "images/Me-ru.webp" };
   var cvHref = { en: "cv/Vladlena-CV-eng.pdf", ru: "cv/Vladlena-CV-ru.pdf" };
 
   var currentLang = "en";
@@ -31,7 +29,6 @@
     langEnBtn.classList.toggle("active", currentLang === "en");
     langRuBtn.classList.toggle("active", currentLang === "ru");
 
-    if (heroPhoto) heroPhoto.src = photoSrc[currentLang];
     if (cvLink) cvLink.setAttribute("href", cvHref[currentLang]);
 
     try {
