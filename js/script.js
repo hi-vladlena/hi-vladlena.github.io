@@ -6,6 +6,47 @@
   var langRuBtn = document.getElementById("langRu");
   var cvLink = document.getElementById("cvLink");
 
+  /* -------------------- RESPONSIVE SCALE-TO-FIT --------------------
+     The desktop layout is authored at a fixed 1920px canvas. On any
+     viewport narrower than that (and wider than the 900px mobile
+     breakpoint) we scale the whole #scaleWrap down as one rigid
+     block so every gap/alignment relationship stays exactly as
+     designed — only the overall size changes. #scaleOuter's height
+     is kept in sync so the page never shows extra blank space or a
+     stray scrollbar from the transform. */
+  var DESIGN_WIDTH = 1920;
+  var MOBILE_BREAKPOINT = 900;
+  var scaleOuter = document.getElementById("scaleOuter");
+  var scaleWrap = document.getElementById("scaleWrap");
+
+  function updateScale() {
+    if (!scaleOuter || !scaleWrap) return;
+    var vw = window.innerWidth;
+
+    if (vw < MOBILE_BREAKPOINT) {
+      document.documentElement.style.setProperty("--page-scale", 1);
+      scaleOuter.style.height = "";
+      return;
+    }
+
+    var scale = Math.min(1, vw / DESIGN_WIDTH);
+    document.documentElement.style.setProperty("--page-scale", scale);
+
+    var naturalHeight = scaleWrap.offsetHeight; /* offsetHeight ignores CSS transform */
+    scaleOuter.style.height = (naturalHeight * scale) + "px";
+  }
+
+  updateScale();
+  window.addEventListener("resize", updateScale);
+  window.addEventListener("orientationchange", updateScale);
+  window.addEventListener("load", updateScale);
+  /* Fonts loading can change natural height slightly; re-measure once settled. */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateScale);
+  }
+  setTimeout(updateScale, 300);
+  setTimeout(updateScale, 1000);
+
   var cvHref = { en: "cv/Vladlena-CV-eng.pdf", ru: "cv/Vladlena-CV-ru.pdf" };
 
   var currentLang = "en";
@@ -36,6 +77,8 @@
     } catch (e) {
       /* storage unavailable — ignore */
     }
+
+    updateScale();
 
     if (activeModal) {
       refreshModalImage();
