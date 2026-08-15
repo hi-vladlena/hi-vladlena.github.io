@@ -485,8 +485,10 @@ html[lang="ru"] .hero-about .bullet-list li{
   .hero-headline{ order:2; }
   .hero-photo{ order:3; }
   .hero-sub{ order:4; margin-top:0; padding-top:0; }
-  .hero-about{ order:5; max-width:none; }
+  .hero-about{ order:5; width:100%; max-width:100%; }
   .hero-row-bottom{ order:6; flex-direction:column; row-gap:16px; }
+
+  .hero-photo{ width:100%; }
 
   .hero-name span{ font-size:26px; }
   .hero-toggle, .lang-btn{ font-size:19px; }
