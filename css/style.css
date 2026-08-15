@@ -517,11 +517,44 @@ html[lang="ru"] .hero-about .bullet-list li{
 
   .links-row{
     grid-template-columns:1fr;
+    gap:16px;
   }
+  .link-box{
+    padding:14px 18px;
+    font-size:16px;
+    min-width:0;
+  }
+  .link-box span:first-child{
+    min-width:0;
+    flex:1 1 auto;
+    overflow-wrap:break-word;
+    word-break:break-word;
+  }
+  .link-box .arrow{ font-size:17px; margin-left:10px; flex:0 0 auto; }
 
+  .card-row{ gap:16px; }
   .card-row-4, .card-row-3{
     grid-template-columns:1fr;
   }
+
+  .exp-card, .edu-card, .project-card{
+    min-width:0;
+    padding:18px;
+  }
+  .exp-date, .edu-date{ font-size:13px; margin-bottom:10px; }
+  .exp-card h3, .edu-card h3{ font-size:18px; }
+  .exp-role, .edu-role{ font-size:13px; margin-bottom:12px; }
+  .exp-card .bullet-list{ margin-bottom:14px; }
+  .exp-card .bullet-list.small li{ font-size:13px; line-height:1.5; }
+  .exp-duration{ font-size:13px; padding-top:10px; }
+
+  .project-card{ padding:0; }
+  .project-info{ padding:16px 18px 20px; }
+  .project-info h3{ font-size:18px; margin-bottom:8px; }
+  .project-sub{ font-size:13px; }
+  .project-sub .arrow{ font-size:16px; }
+
+  .site-footer{ padding:24px; font-size:12px; }
 
   .project-card img{ aspect-ratio:16/9; }
 
