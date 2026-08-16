@@ -287,6 +287,7 @@ html[lang="ru"] .hero-about .bullet-list li{
   justify-content:space-between;
   font-size:22px;
   font-weight:500;
+  text-align:left;
   transition:border-color .15s ease;
 }
 .link-box:hover{ border-color:var(--black); }
@@ -486,7 +487,7 @@ html[lang="ru"] .hero-about .bullet-list li{
   .hero-photo{ order:3; }
   .hero-sub{ order:4; margin-top:0; padding-top:0; }
   .hero-about{ order:5; width:100%; max-width:100%; }
-  .hero-row-bottom{ order:6; flex-direction:column; row-gap:16px; }
+  .hero-row-bottom{ order:6; flex-direction:column; row-gap:16px; align-items:stretch; }
 
   .hero-photo{ width:100%; }
 
